@@ -5,13 +5,13 @@ def main():
     """Main Program"""
     while True:
         counters = {}
-        u_in = input("Input sentence to display graph! [q to Quit]: ").lower()
-        if u_in == "q":
+        text = input("Input sentence to display graph! [q to Quit]: ").lower()
+        if text == "q":
             print("Bye-bye!")
             break
 
         print("Chart:")
-        for char in u_in:
+        for char in text:
             if char in ALPHABETS:
                 counters[char] = counters.get(char, 0) + 1
 
