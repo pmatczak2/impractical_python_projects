@@ -16,14 +16,13 @@ def main():
                 counters[char] = counters.get(char, 0) + 1
 
         for char in ALPHABETS:
-            if counters.get(char, 0):
+            if counters.get(char):
                 print(f"{char}: {convert(char, counters)}")
-        print()
 
 
 def convert(char, counters):
     """Convert counters to graphical chart"""
-    return "".join([char for _ in range(counters.get(char, 0))])
+    return "".join([char for _ in range(counters.get(char))])
 
 
 if __name__ == "__main__":
