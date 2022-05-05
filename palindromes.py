@@ -1,6 +1,6 @@
 """Find palindromes (letter palingrams) in a dictionary file"""
-
 import load_dictionary
+
 word_list = load_dictionary.load('2of4brif.txt')
 pali_list = []
 
