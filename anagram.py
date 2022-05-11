@@ -1,7 +1,7 @@
 # import load_dictionary
 #
 # word_list = load_dictionary.load('2of4brif.txt')
-# anagrams = []
+# anagram_list = []
 #
 # # a word thats made up from letters form another word. exp(post, stop)
 # for word in word_list:

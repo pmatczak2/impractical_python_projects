@@ -12,3 +12,4 @@ for word in word_list:
         continue
 
 print(f"{clean_word_list}")
+
