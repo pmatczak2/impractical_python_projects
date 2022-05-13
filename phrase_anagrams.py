@@ -63,7 +63,7 @@ def main():
             print(f"Length of anagram phrase = {len(temp_phrase)}")
 
             find_anagrams(name, dict_file)
-            print("Current anagram phrase=", end=" ")
+            print("Current anagram phrase =", end=" ")
             print(phrase, file=sys.stderr)
 
             choice, name = process_choice(name)
@@ -71,8 +71,8 @@ def main():
 
         elif len(temp_phrase) == limit:
             print("\n*****FINISHED!!!*****\n")
-            print("Anagram of name =", end=" ")
-            print(phrase, file=sys.stderr)
+            print("Anagram of name =", phrase, file=sys.stderr)
+            # print(phrase, file=sys.stderr)
             print()
             try_again = input('\n\nTry again? (Press Enter else "n" to quit\n ')
             if try_again.lower() == 'n':
