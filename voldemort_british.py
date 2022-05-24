@@ -79,7 +79,7 @@ def trigram_filter(filter_1, trigrams_filtered):
             if triplet in candidate:
                 filtered.add(candidate)
     filter_2 = filter_1 - filtered
-    print(f"# if choice after filter_2 = {len(filter_2)}")
+    print(f"# of choice after filter_2 = {len(filter_2)}")
     return filter_2
 
 def letter_pair_filter(filter_2):
@@ -92,10 +92,29 @@ def letter_pair_filter(filter_2):
             if r in candidate:
                 filtered.add(candidate)
         for fp in first_pair_rejects:
-            if candidate.startswitch(fp):
+            if candidate.startswith(fp):
                 filtered.add(candidate)
     filter_3 = filter_2 - filtered
     print(f"# of choices after filter_3 = {len(filter_3)}")
     if 'voldemort' in filter_3:
         print("Voldemort found!", file=sys.stderr)
     return filter_3
+
+def view_by_letter(name, filter_3):
+    """Filter to anagrams starting with input letter."""
+    print(f"Remaining letters = {name}")
+    first = input("Select a starting letter or press Enter to see all: ")
+    subset = []
+    for candidate in filter_3:
+        if candidate.startswith(first):
+            subset.append(candidate)
+    print(*sorted(subset), sep="\n")
+    print(f"Number of choices starting with {first} = {len(subset)}")
+    try_again = input("Try again? (Press Enter else any other key to Exit):")
+    if try_again.lower() == '':
+        view_by_letter(name, filter_3)
+    else:
+        sys.exit()
+
+if __name__ == "__main__":
+    main()
