@@ -3,9 +3,9 @@ from collections import defaultdict
 from itertools import permutations
 import load_dictionary
 
-word_list = load_dictionary.load('2of4brif.txt', 'r')
+word_list = load_dictionary.load('2of4brif.txt')
 
-name = 'Voldemort'  # (tmvoordle)
+name = 'Volvo'  # (tmvoordle)
 name = name.lower()
 
 # generate unique letter pairs from name
