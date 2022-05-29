@@ -63,3 +63,29 @@ def main():
     plaintext = decrypt(translation_matrix)
 
     print(f"Plaintext {plaintext}")
+
+def validate_col_row(cipherlist):
+    """Check that input columns & rows are valid vs. message length."""
+    factors = []
+    len_cipher = len(cipherlist)
+    for i in range(2, len_cipher):  # range exclude 1-column ciphers
+        if len_cipher % i == 0:
+            factors.append(i)
+    print(f"\nLength of cipher = {len_cipher}")
+    print(f"Acceptable column/row values include: {factors}")
+    print()
+    if ROWS * COLS != len_cipher:
+        print("\nError - Input columns & rows ont factors of length "
+              "of cipher. Terminating program.", file=sys.stderr)
+        sys.exit(1)
+
+def key_to_int(key):
+    """Turn lwy into list of integers & check validity"""
+    key_int = [int(i) for i in key.split()]
+    key_int_lo = min(key_int)
+    key_int_hi = max(key_int)
+    if len(key_int) != COLS or key_int_lo < -COLS or key_int_hi > COLS or 0 in key_int_hi:
+        print("\nError - Problem with key. Terminating.", file=sys.stderr)
+        sys.exit(1)
+    else:
+        return key_int
