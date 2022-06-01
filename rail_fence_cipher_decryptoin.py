@@ -39,3 +39,17 @@ def split_rails(message):
     row2 = (message[row_1_len:]).lower()
     return row1, row2
 
+def decrypt(row1, row2):
+    """Build list with every other letter in 2 strings & print."""
+    plaintext = []
+    for r1, r2 in itertools.zip_longest(row1, row2):
+        plaintext.append(r1)
+        plaintext.append(r2)
+    if None in plaintext:
+        plaintext.pop()
+    print(f"rail 1 = {row1}")
+    print(f"rail 2 = {row2}")
+    print(f"\nplaintext = {''.join(plaintext)}")
+
+if __name__ == "__main__":
+    main()
